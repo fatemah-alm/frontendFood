@@ -1,6 +1,5 @@
 import { makeAutoObservable, observable, action } from "mobx";
-import axios from "axios";
-
+import instance from "./instance";
 class RecipeStore {
   recipies = [];
 
