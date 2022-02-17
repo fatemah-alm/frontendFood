@@ -1,6 +1,14 @@
 import React from "react";
+import categoryStore from "../stores/categoryStore";
+import CategoryCard from "./CategoryCard";
 
-const Service = () => {
+const CategoryList = () => {
+  const categoryList = categoryStore.categories
+    // .filter((category) =>
+    //   category.name.toLowerCase().includes(query.toLowerCase())
+    // )
+    .map((category) => <CategoryCard key={category._id} category={category} />);
+
   return (
     <section class="page-section" id="services">
       <div class="container">
@@ -43,4 +51,4 @@ const Service = () => {
   );
 };
 
-export default Service;
+export default CategoryList;
