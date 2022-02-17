@@ -37,8 +37,8 @@
   }
 }
 
-.recipe {
-  background-image: url("/Users/apple/Desktop/Development/frontendFood/frontend/public/assets/img/sackpy-3.jpeg");
+/* .recipe {
+   background-image: url("/Users/apple/Desktop/Development/frontendFood/frontend/public/assets/img/sackpy-3.jpeg"); 
   background-position: center;
   background-repeat: no-repeat;
   -webkit-background-size: cover;
@@ -48,4 +48,4 @@
   min-width: 100%;
   min-height: 100%;
   position: absolute;
-}
+} */
