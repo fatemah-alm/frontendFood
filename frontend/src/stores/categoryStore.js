@@ -17,3 +17,6 @@ class CategoryStore {
     }
   };
 }
+
+const categoryStore = new CategoryStore();
+export default categoryStore;
