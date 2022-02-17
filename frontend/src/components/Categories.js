@@ -5,10 +5,7 @@ const Service = () => {
     <section class="page-section" id="services">
       <div class="container">
         <div class="text-center">
-          <h2 class="section-heading text-uppercase">Services</h2>
-          <h3 class="section-subheading text-muted">
-            Lorem ipsum dolor sit amet consectetur.
-          </h3>
+          <h2 class="section-heading text-uppercase">Categories</h2>
         </div>
         <div class="row text-center">
           <div class="col-md-4">
@@ -18,11 +15,7 @@ const Service = () => {
             </span>
             <img src="./assets/img/images.jpeg" alt="breakfast" />
             <h4 class="my-3">Breakfast</h4>
-            <p class="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
-              maxime quam architecto quo inventore harum ex magni, dicta
-              impedit.
-            </p>
+            <p class="text-muted">Start your day with a delecious Breakfast!</p>
           </div>
           <div class="col-md-4">
             <span class="fa-stack fa-4x">
@@ -31,9 +24,7 @@ const Service = () => {
             </span>
             <h4 class="my-3">Lunch</h4>
             <p class="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
-              maxime quam architecto quo inventore harum ex magni, dicta
-              impedit.
+              Keep energized! choose your lunch meal for today.
             </p>
           </div>
           <div class="col-md-4">
@@ -43,9 +34,7 @@ const Service = () => {
             </span>
             <h4 class="my-3">Dinner</h4>
             <p class="text-muted">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima
-              maxime quam architecto quo inventore harum ex magni, dicta
-              impedit.
+              Light or large dinner meal? Dig in for more options.
             </p>
           </div>
         </div>
