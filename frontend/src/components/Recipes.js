@@ -14,16 +14,31 @@ const RecipeItem = ({ recipe }) => {
   // call a function from app to delete a room (pass room.id as a parameter)
 
   return (
-    <div className="group">
-      <div style={{ animationDelay: "0.1" }} className="chatlist__item">
-        <div className="avatar">
-          <div className="avatar-img">
-            <img src={recipe.image} alt="#" />
+    <div class="col-lg-4 col-sm-6 mb-4">
+      <div class="portfolio-item round">
+        <a
+          class="portfolio-link"
+          data-bs-toggle="modal"
+          href="#portfolioModal2"
+        >
+          <div class="portfolio-hover">
+            <div class="portfolio-hover-content">
+              <i class="fas fa-plus fa-3x"></i>
+            </div>
           </div>
-        </div>
-        <div className="userMeta">
-          <p>{recipe.name}</p>
-          <span className="activeTime">{recipe.description}</span>
+          <img
+            className="image1"
+            src="https://shop.anything.world/static/media/logo.818c89d4.png"
+            alt="#"
+          />{" "}
+        </a>
+        <div class="portfolio-caption">
+          <div class="portfolio-caption-heading">
+            <p>{recipe.name}</p>
+          </div>
+          <div class="portfolio-caption-subheading text-muted">
+            {recipe.description}
+          </div>
         </div>
       </div>
     </div>

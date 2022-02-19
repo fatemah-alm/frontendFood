@@ -2,7 +2,10 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <nav
+      class="navbar navbar-expand-lg navbar-dark fixed-top black"
+      id="mainNav"
+    >
       <div class="container">
         <a class="navbar-brand" href="#page-top">
           {/* <img src="assets/img/navbar-logo.svg" alt="..." /> */}
