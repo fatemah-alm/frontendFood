@@ -51,6 +51,14 @@
   color: #282c34;
 }
 
+.categories {
+  height: 100px;
+  margin-top: 50px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+
 /* .recipe {
    background-image: url("/Users/apple/Desktop/Development/frontendFood/frontend/public/assets/img/sackpy-3.jpeg"); 
   background-position: center;

@@ -1,5 +1,4 @@
 import { Button, Card, Col } from "react-bootstrap";
-import recipeStore from "../stores/recipeStore";
 import { Link } from "react-router-dom";
 
 //import CategoryModal from "./CategoryModal";
@@ -14,7 +13,7 @@ function CategoryCard({ category }) {
             <Link to={`/category/${category.name}`}>
               <Card.Title>{category.name}</Card.Title>
             </Link>
-            <Card.Text>{category.description}</Card.Text>
+            {/* <Card.Text>{category.description}</Card.Text> */}
             {/* <Button className="m-1" variant="danger">
             ADD
           </Button> */}
