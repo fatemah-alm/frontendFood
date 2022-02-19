@@ -3,8 +3,14 @@ import { observer } from "mobx-react";
 import { useParams } from "react-router-dom";
 import recipeStore from "../stores/recipeStore";
 import Recipes from "./Recipes";
+import RecipeModal from "./RecipeModal";
+import { Button } from "react-bootstrap";
 
 const RecipeList = () => {
+  const [show, setShow] = useState(false);
+  const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+
   const name = useParams().name;
   console.log(name);
   const recipeList = recipeStore.recipies
@@ -20,15 +26,22 @@ const RecipeList = () => {
   //     recipeStore.fetchRecipies();
   //   }, []);
   return (
-    <section class="page-section bg-light" id="portfolio">
-      <div class="container">
-        <div class="text-center">
-          <h2 class="section-heading text-uppercase">{name} recipies</h2>
-          <h3 class="section-subheading text-muted">finest {name} food </h3>
+    <>
+      <section class="page-section bg-light" id="portfolio">
+        <div class="container">
+          <div class="text-center">
+            <h2 class="section-heading text-uppercase">{name} recipies</h2>
+            <h3 class="section-subheading text-muted">finest {name} food </h3>
+          </div>
+          <div class="row">{recipeList}</div>
+          <Button variant="outline-dark" onClick={handleShow}>
+            Add Recipe
+          </Button>
         </div>
-        <div class="row">{recipeList}</div>
-      </div>
-    </section>
+      </section>
+
+      <RecipeModal handleClose={handleClose} setShow={setShow} show={show} />
+    </>
   );
 };
 

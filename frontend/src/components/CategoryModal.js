@@ -1,7 +1,15 @@
 import React from "react";
 import { useState } from "react";
 import categorytStore from "../stores/categoryStore";
-import { Button, InputGroup, FormControl, Modal } from "react-bootstrap";
+import {
+  Button,
+  InputGroup,
+  FormControl,
+  Modal,
+  ButtonGroup,
+  Dropdown,
+  DropdownButton,
+} from "react-bootstrap";
 
 const CategoryModal = ({ setShow, handleClose, show }) => {
   const [category, setCategory] = useState({
@@ -9,8 +17,10 @@ const CategoryModal = ({ setShow, handleClose, show }) => {
     image: "",
   });
 
-  const handleChange = (event) =>
+  const handleChange = (event) => {
     setCategory({ ...category, [event.target.name]: event.target.value });
+    console.log(category, "Hellooooo");
+  };
 
   const handleImage = (event) =>
     setCategory({ ...category, [event.target.name]: event.target.files[0] });
@@ -24,6 +34,7 @@ const CategoryModal = ({ setShow, handleClose, show }) => {
   };
 
   return (
+    // ADD PROGRESS BARS
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Body>
@@ -48,7 +59,6 @@ const CategoryModal = ({ setShow, handleClose, show }) => {
                 placeholder="Image"
               />
             </InputGroup>
-            <InputGroup className="mb-3"></InputGroup>
             <Button variant="outline-dark" type="submit">
               Submit
             </Button>
