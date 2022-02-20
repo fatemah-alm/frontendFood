@@ -59,6 +59,12 @@
   justify-content: center;
 }
 
+.image2 {
+  /* width: 300; */
+  height: 300px;
+  object-fit: cover;
+}
+
 /* .recipe {
    background-image: url("/Users/apple/Desktop/Development/frontendFood/frontend/public/assets/img/sackpy-3.jpeg"); 
   background-position: center;

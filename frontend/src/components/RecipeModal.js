@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import recipetStore from "../stores/recipeStore";
+import categoryStore from "../stores/categoryStore";
 import {
   Button,
   InputGroup,
@@ -12,6 +13,9 @@ import {
 } from "react-bootstrap";
 
 const RecipeModal = ({ setShow, handleClose, show }) => {
+  const categories = categoryStore.categories;
+  const [category, setCategory] = useState("");
+
   const [recipe, setRecipe] = useState({
     name: "",
     image: "",
@@ -20,6 +24,7 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
     cookTime: "",
     prepTime: "",
     createdBy: "",
+    category: "",
   });
 
   const handleChange = (event) =>
@@ -29,15 +34,22 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
     setRecipe({ ...recipe, [key]: event });
     console.log(recipe, "Hellooooo");
   };
+  const handleCategory = (event) => setCategory(event);
 
   const handleImage = (event) =>
     setRecipe({ ...recipe, [event.target.name]: event.target.files[0] });
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    recipetStore.createRecipe(recipe);
+    const foundCategory = categories.find((category1) => {
+      return category1.name === category;
+    });
+
+    recipetStore.createRecipe(recipe, foundCategory._id);
     handleClose();
   };
+
+  console.log(categories);
 
   return (
     <div>
@@ -118,6 +130,23 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
               </DropdownButton>
             </>
             <br />
+            <>
+              <DropdownButton
+                as={ButtonGroup}
+                key="category"
+                id="dropdown-variants-Warning"
+                variant="warning"
+                title={category === "" ? "Category" : `${category}`}
+                name="category"
+                onSelect={handleCategory}
+              >
+                {categories.map((category) => (
+                  <Dropdown.Item eventKey={category.name}>
+                    {category.name}
+                  </Dropdown.Item>
+                ))}
+              </DropdownButton>
+            </>
             <InputGroup className="mb-3">
               <InputGroup.Text>Calories</InputGroup.Text>
               <FormControl
