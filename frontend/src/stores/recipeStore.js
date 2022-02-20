@@ -21,12 +21,12 @@ class RecipeStore {
     }
   };
 
-  createRecipe = async (newRecipe) => {
+  createRecipe = async (newRecipe, categoryId) => {
     try {
       const formData = new FormData();
       for (const key in newRecipe) formData.append(key, newRecipe[key]);
       const response = await instance.post(
-        `categories/${newRecipe.id}/recipies`,
+        `categories/${categoryId}/recipies`,
         formData
       );
       // console.log(this.categories[0], "hello");
