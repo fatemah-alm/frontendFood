@@ -13,15 +13,17 @@ const RecipeList = () => {
 
   const name = useParams().name;
   console.log(name);
+
   const recipeList = recipeStore.recipies
     .filter((recipe) => {
-      console.log(recipe);
-      if (name) return recipe.category.name.includes(name);
-      else return true;
+      return recipe.category.name === name;
     })
     .map((recipe) => {
+      console.log(recipe);
       return <Recipes recipe={recipe} key={recipe.id} />;
     });
+
+  console.log(recipeList);
   //   useEffect(() => {
   //     recipeStore.fetchRecipies();
   //   }, []);
