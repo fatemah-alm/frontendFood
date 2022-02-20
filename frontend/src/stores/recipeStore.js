@@ -36,7 +36,7 @@ class RecipeStore {
 
       this.fetchRecipies();
 
-      //   this.recipies.push(response.data);
+      this.recipies.push(response.data);
       //   console.log(response.data, "data");
       //   console.log(response.data.payload, "payload");
     } catch (error) {

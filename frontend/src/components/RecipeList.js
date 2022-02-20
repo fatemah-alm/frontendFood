@@ -15,9 +15,17 @@ const RecipeList = () => {
   console.log(name);
 
   const recipeList = recipeStore.recipies
+    .filter((recipe) => {
+      console.log(recipe.category);
+      if (recipe.category) {
+        return name ? recipe.category.name === name : true;
+      }
+    })
+=======
     // .filter((recipe) => {
     //   return recipe.category.name === name;
     // })
+
     .map((recipe) => {
       console.log(recipe);
       return <Recipes recipe={recipe} key={recipe.id} />;
