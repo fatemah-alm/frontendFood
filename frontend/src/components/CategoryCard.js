@@ -8,7 +8,12 @@ function CategoryCard({ category }) {
     <>
       <Col className="col-lg-4 mx-auto">
         <Card>
-          <Card.Img variant="top" src={category.image} alt={category.name} />
+          <Card.Img
+            className="image2"
+            variant="top"
+            src={category.image}
+            alt={category.name}
+          />
           <Card.Body>
             <Link to={`/category/${category.name}`}>
               <Card.Title>{category.name}</Card.Title>
