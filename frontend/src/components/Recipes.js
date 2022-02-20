@@ -26,11 +26,7 @@ const RecipeItem = ({ recipe }) => {
               <i class="fas fa-plus fa-3x"></i>
             </div>
           </div>
-          <img
-            className="image1"
-            src="https://shop.anything.world/static/media/logo.818c89d4.png"
-            alt="#"
-          />{" "}
+          <img className="image1" src={recipe.image} alt="#" />{" "}
         </a>
         <div class="portfolio-caption">
           <div class="portfolio-caption-heading">
