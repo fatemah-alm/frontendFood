@@ -1,9 +1,10 @@
 import React from "react";
 import CategoryList from "./CategoryList";
-
+import Navbar from "./Navbar";
 const Home = () => {
   return (
     <>
+      <Navbar />
       <header className="masthead">
         <div className="container">
           <div className="masthead-subheading">Welcome To Our Kitchen!</div>
@@ -12,7 +13,7 @@ const Home = () => {
           </div>
           <a
             className="btn btn-primary btn-xl text-uppercase"
-            href="/recipeList"
+            href="/recipe-list"
           >
             view all recipies
           </a>

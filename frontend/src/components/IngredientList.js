@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { observer } from "mobx-react";
 import { useParams } from "react-router-dom";
-import recipeStore from "../stores/recipeStore";
-import Recipes from "./Recipes";
-import RecipeModal from "./RecipeModal";
+import ingredientStore from "../stores/ingredientStore";
+// import Ingredients from "./Ingredients";
+// import IngredientModal from "./IngredientModal";
 import { Button } from "react-bootstrap";
 
-const RecipeList = () => {
+const IngredientList = () => {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
@@ -14,21 +14,21 @@ const RecipeList = () => {
   const name = useParams().name;
   console.log(name);
 
-  const recipeList = recipeStore.recipies
-    .filter((recipe) => {
-      console.log(recipe.category);
-      if (recipe.category) {
-        return name ? recipe.category.name === name : true;
-      }
-    })
-    .map((recipe) => {
-      console.log(recipe);
-      return <Recipes recipe={recipe} key={recipe.id} />;
+  const ingredientList = ingredientStore.ingredients
+    // .filter((ingredient) => {
+    // //   console.log(ingredient.category);
+    //  {
+    //     return name ? ingredient.category.name === name : true;
+    //   }
+    // })
+    .map((ingredient) => {
+      console.log(ingredient);
+      //   return <ingredients ingredient={ingredient} key={ingredient.id} />;
     });
 
-  console.log(recipeList);
+  console.log(IngredientList);
   //   useEffect(() => {
-  //     recipeStore.fetchRecipies();
+  //     IngredientStore.fetchRecipies();
   //   }, []);
   return (
     <>
@@ -38,16 +38,16 @@ const RecipeList = () => {
             <h2 class="section-heading text-uppercase">{name} recipies</h2>
             <h3 class="section-subheading text-muted">finest {name} food </h3>
           </div>
-          <div class="row">{recipeList}</div>
+          <div class="row">{ingredientList}</div>
           <Button variant="outline-dark" onClick={handleShow}>
-            Add Recipe
+            Add Ingredient
           </Button>
         </div>
       </section>
 
-      <RecipeModal handleClose={handleClose} setShow={setShow} show={show} />
+      {/* <IngredientModal handleClose={handleClose} setShow={setShow} show={show} /> */}
     </>
   );
 };
 
-export default observer(RecipeList);
+export default observer(IngredientList);

@@ -1,6 +1,7 @@
 import logo from "./logo.svg";
 import "./style/my.css";
 import "./App.css";
+// import "./style/another.css";
 
 import { Route, Routes } from "react-router";
 import Navbar from "./components/Navbar";
@@ -13,7 +14,7 @@ function App() {
       {/* <Navbar /> */}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/recipeList" element={<RecipeList />} />
+        <Route path="/recipe-list" element={<RecipeList />} />
         <Route path="/category/:name" element={<RecipeList />} />
       </Routes>
     </div>
