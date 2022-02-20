@@ -23,8 +23,6 @@ class IngredientStore {
       for (const key in newIngredient) formData.append(key, newIngredient[key]);
       const response = await instance.post("/ingredients", formData);
       this.ingredients.push(response.data);
-      console.log(response.data, "data");
-      console.log(response.data.payload, "payload");
     } catch (error) {
       console.log(
         "🚀 ~ file: ingredientStore.js ~ line 16 ~ IngredientStore ~ createIngredient= ~ error",
