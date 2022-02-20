@@ -10,8 +10,8 @@ const Home = () => {
           <div class="masthead-heading text-uppercase">
             It's Nice To serve You
           </div>
-          <a class="btn btn-primary btn-xl text-uppercase" href="#services">
-            Tell Me More
+          <a class="btn btn-primary btn-xl text-uppercase" href="/recipeList">
+            view all recipies
           </a>
         </div>
       </header>
