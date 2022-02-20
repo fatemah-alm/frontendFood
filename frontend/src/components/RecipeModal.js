@@ -12,10 +12,14 @@ import {
   Dropdown,
   ProgressBar,
 } from "react-bootstrap";
+import ingredientStore from "../stores/ingredientStore";
 
 const RecipeModal = ({ setShow, handleClose, show }) => {
   const categories = categoryStore.categories;
   const [category, setCategory] = useState("");
+
+  const ingredients = ingredientStore.ingredients;
+  const [ingredient, setingredient] = useState("");
 
   const [recipe, setRecipe] = useState({
     name: "",
@@ -26,6 +30,7 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
     prepTime: "",
     createdBy: "",
     category: "",
+    ingredient: "",
   });
 
   const handleChange = (event) =>
@@ -172,6 +177,18 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
                 onChange={handleChange}
               />
             </InputGroup>
+
+            <InputGroup className="mb-3">
+              <InputGroup.Text>Ingredients</InputGroup.Text>
+              <FormControl
+                placeholder="Add Ingredients"
+                name="ingredients"
+                value={recipe.ingredient}
+                type="text"
+                onChange={handleChange}
+              />
+            </InputGroup>
+
             <ProgressBar animated now={45} />
 
             <Button variant="outline-dark" type="submit">
