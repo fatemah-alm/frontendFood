@@ -21,6 +21,11 @@ const RecipeList = () => {
         return name ? recipe.category.name === name : true;
       }
     })
+=======
+    // .filter((recipe) => {
+    //   return recipe.category.name === name;
+    // })
+
     .map((recipe) => {
       console.log(recipe);
       return <Recipes recipe={recipe} key={recipe.id} />;
@@ -35,8 +40,8 @@ const RecipeList = () => {
       <section class="page-section bg-light" id="portfolio">
         <div class="container">
           <div class="text-center">
-            <h2 class="section-heading text-uppercase">{name} recipies</h2>
-            <h3 class="section-subheading text-muted">finest {name} food </h3>
+            <h2 class="section-heading text-uppercase"> recipies</h2>
+            <h3 class="section-subheading text-muted">finest food </h3>
           </div>
           <div class="row">{recipeList}</div>
           <Button variant="outline-dark" onClick={handleShow}>
