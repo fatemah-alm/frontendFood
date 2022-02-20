@@ -10,6 +10,7 @@ import {
   DropdownButton,
   ButtonGroup,
   Dropdown,
+  ProgressBar,
 } from "react-bootstrap";
 
 const RecipeModal = ({ setShow, handleClose, show }) => {
@@ -86,67 +87,70 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
               />
             </InputGroup>
 
-            <>
-              <DropdownButton
-                as={ButtonGroup}
-                key="prep-time"
-                id="dropdown-variants-Warning"
-                variant="warning"
-                title={
-                  recipe.prepTime === ""
-                    ? "Prep Time"
-                    : `${recipe.prepTime} mins`
-                }
-                name="prepTime"
-                onSelect={(event) => handleSelect("prepTime", event)}
-              >
-                <Dropdown.Item eventKey={10}>10 min</Dropdown.Item>
-                <Dropdown.Item eventKey={15}>15 min</Dropdown.Item>
-                <Dropdown.Item eventKey={20}>20 min</Dropdown.Item>
-                <Dropdown.Item eventKey={25}>25 min</Dropdown.Item>
-                <Dropdown.Item eventKey={30}>30 min</Dropdown.Item>
-              </DropdownButton>
-            </>
-            <br />
-            <>
-              <DropdownButton
-                as={ButtonGroup}
-                key="cook-time"
-                id="dropdown-variants-Warning"
-                variant="warning"
-                title={
-                  recipe.cookTime === ""
-                    ? "Cook Time"
-                    : `${recipe.cookTime} mins`
-                }
-                name="cookTime"
-                onSelect={(event) => handleSelect("cookTime", event)}
-              >
-                <Dropdown.Item eventKey={10}>10 min</Dropdown.Item>
-                <Dropdown.Item eventKey={15}>15 min</Dropdown.Item>
-                <Dropdown.Item eventKey={20}>20 min</Dropdown.Item>
-                <Dropdown.Item eventKey={25}>25 min</Dropdown.Item>
-                <Dropdown.Item eventKey={30}>30 min</Dropdown.Item>
-              </DropdownButton>
-            </>
-            <br />
-            <>
-              <DropdownButton
-                as={ButtonGroup}
-                key="category"
-                id="dropdown-variants-Warning"
-                variant="warning"
-                title={category === "" ? "Category" : `${category}`}
-                name="category"
-                onSelect={handleCategory}
-              >
-                {categories.map((category) => (
-                  <Dropdown.Item eventKey={category.name}>
-                    {category.name}
-                  </Dropdown.Item>
-                ))}
-              </DropdownButton>
-            </>
+            <div className="flex-gap">
+              <>
+                <DropdownButton
+                  as={ButtonGroup}
+                  key="prep-time"
+                  id="dropdown-variants-Warning"
+                  variant="warning"
+                  title={
+                    recipe.prepTime === ""
+                      ? "Prep Time"
+                      : `${recipe.prepTime} mins`
+                  }
+                  name="prepTime"
+                  onSelect={(event) => handleSelect("prepTime", event)}
+                >
+                  <Dropdown.Item eventKey={10}>10 min</Dropdown.Item>
+                  <Dropdown.Item eventKey={15}>15 min</Dropdown.Item>
+                  <Dropdown.Item eventKey={20}>20 min</Dropdown.Item>
+                  <Dropdown.Item eventKey={25}>25 min</Dropdown.Item>
+                  <Dropdown.Item eventKey={30}>30 min</Dropdown.Item>
+                </DropdownButton>
+              </>
+              <br />
+              <>
+                <DropdownButton
+                  as={ButtonGroup}
+                  key="cook-time"
+                  id="dropdown-variants-Warning"
+                  variant="warning"
+                  title={
+                    recipe.cookTime === ""
+                      ? "Cook Time"
+                      : `${recipe.cookTime} mins`
+                  }
+                  name="cookTime"
+                  onSelect={(event) => handleSelect("cookTime", event)}
+                >
+                  <Dropdown.Item eventKey={10}>10 min</Dropdown.Item>
+                  <Dropdown.Item eventKey={15}>15 min</Dropdown.Item>
+                  <Dropdown.Item eventKey={20}>20 min</Dropdown.Item>
+                  <Dropdown.Item eventKey={25}>25 min</Dropdown.Item>
+                  <Dropdown.Item eventKey={30}>30 min</Dropdown.Item>
+                </DropdownButton>
+              </>
+              <br />
+              <>
+                <DropdownButton
+                  as={ButtonGroup}
+                  key="category"
+                  id="dropdown-variants-Warning"
+                  variant="warning"
+                  title={category === "" ? "Category" : `${category}`}
+                  name="category"
+                  onSelect={handleCategory}
+                >
+                  {categories.map((category) => (
+                    <Dropdown.Item eventKey={category.name}>
+                      {category.name}
+                    </Dropdown.Item>
+                  ))}
+                </DropdownButton>
+              </>
+            </div>
+
             <InputGroup className="mb-3">
               <InputGroup.Text>Calories</InputGroup.Text>
               <FormControl
@@ -168,6 +172,7 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
                 onChange={handleChange}
               />
             </InputGroup>
+            <ProgressBar animated now={45} />
 
             <Button variant="outline-dark" type="submit">
               Submit

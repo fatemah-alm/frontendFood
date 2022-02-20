@@ -64,6 +64,19 @@
   height: 300px;
   object-fit: cover;
 }
+.form-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-gap {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-gap > div {
+  margin: 6px; /* HERE WE ADD THE SPACE */
+}
 
 /* .recipe {
    background-image: url("/Users/apple/Desktop/Development/frontendFood/frontend/public/assets/img/sackpy-3.jpeg"); 
