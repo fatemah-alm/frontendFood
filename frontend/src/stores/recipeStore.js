@@ -31,8 +31,12 @@ class RecipeStore {
         // { name: "hi" }
         formData
       );
+
       // console.log(this.categories[0], "hello");
-      this.recipies.push(response.data);
+
+      this.fetchRecipies();
+
+      //   this.recipies.push(response.data);
       //   console.log(response.data, "data");
       //   console.log(response.data.payload, "payload");
     } catch (error) {
