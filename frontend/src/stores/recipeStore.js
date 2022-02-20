@@ -21,6 +21,26 @@ class RecipeStore {
     }
   };
 
+  createRecipe = async (newRecipe, categoryId) => {
+    try {
+      const formData = new FormData();
+      for (const key in newRecipe) formData.append(key, newRecipe[key]);
+      const response = await instance.post(
+        `categories/${categoryId}/recipies`,
+        formData
+      );
+      // console.log(this.categories[0], "hello");
+      this.recipies.push(response.data);
+      //   console.log(response.data, "data");
+      //   console.log(response.data.payload, "payload");
+    } catch (error) {
+      console.log(
+        "🚀 ~ file: RecipeStore.js ~ line 16 ~ ProductStore ~ createProduct= ~ error",
+        error
+      );
+    }
+  };
+
   //   fetchSomeRecipies = async (categoryId) => {
   //     try {
   //       const recipeResponse = await axios.get(
