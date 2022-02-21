@@ -24,8 +24,11 @@ const AddRecipe = () => {
   const [progressBar, setProgressBar] = useState(0);
 
   const ingredients = ingredientStore.ingredients;
-  console.log(ingredients);
-  const [ingredient, setIngredient] = useState();
+  //   console.log("=====", ingredients);
+  const [ingredient, setIngredient] = useState({
+    name: "",
+    type: "",
+  });
 
   const [recipe, setRecipe] = useState({
     name: "",
@@ -38,7 +41,7 @@ const AddRecipe = () => {
     category: "",
     ingredient: "",
   });
-  console.log(ingredients);
+  //   console.log(ingredients);
   const handleChange = (event) => {
     setRecipe({ ...recipe, [event.target.name]: event.target.value });
     setProgressBar(progressBar + 12.5);
@@ -49,7 +52,7 @@ const AddRecipe = () => {
       setProgressBar(progressBar + 12.5);
     }
     setRecipe({ ...recipe, [key]: event });
-    console.log(recipe, "Hellooooo");
+    // console.log(recipe, "Hellooooo");
   };
   const handleCategory = (event) => {
     setCategory(event);
@@ -67,14 +70,18 @@ const AddRecipe = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    console.log("hi", categories, category);
     const foundCategory = categories.find((category1) => {
       return category1.name === category;
     });
+
+    console.log("done==========", foundCategory._id);
+    recipe.ing = ["milk", "egg"];
     recipetStore.createRecipe(recipe, foundCategory._id);
     navigate("/recipe-list");
   };
 
-  console.log(categories);
+  //   console.log(categories);
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -190,134 +197,139 @@ const AddRecipe = () => {
           />
         </InputGroup>
 
-        <div className="flex-gap">
+        <div
+          className="flex-gap"
+          style={{ gap: "10px", "margin-bottom": "10px" }}
+        >
           <>
-            <DropdownButton
+            <select
               as={ButtonGroup}
               key="Fruits"
               id="dropdown-variants-Warning"
               variant="warning"
-              title={ingredient === "" ? "Fruits" : `${ingredient}`}
-              name="type"
-              onSelect={handleIngredient}
+              title={ingredient.type === "" ? "Fruits" : `${ingredient.type}`}
+              name="Fruits"
+              onChange={handleIngredient}
             >
+              <option selected disabled hidden>
+                Fruits
+              </option>
               {ingredients
                 .filter((ingredient) => {
-                  console.log(ingredient.type);
+                  //   console.log(ingredient.type);
                   return ingredient.type === "Fruits";
                 })
                 .map((ingredient1) => (
-                  <Dropdown.Item
-                    key={ingredient1._id}
-                    eventKey={ingredient1.name}
-                  >
-                    {ingredient1}
-                  </Dropdown.Item>
+                  <option key={ingredient1._id} value={ingredient1.name}>
+                    {ingredient1.name}
+                  </option>
                 ))}
-            </DropdownButton>
+            </select>
           </>
 
           <>
-            <DropdownButton
+            <select
               as={ButtonGroup}
-              key="Fruits"
+              key="Dairy"
               id="dropdown-variants-Warning"
               variant="warning"
-              title={ingredient === "" ? "Fruits" : `${ingredient}`}
-              name="type"
-              onSelect={handleIngredient}
+              title={ingredient.type === "" ? "Dairy" : `${ingredient.type}`}
+              name="Dairy"
+              onChange={handleIngredient}
             >
+              <option selected disabled hidden>
+                Dairy
+              </option>
               {ingredients
                 .filter((ingredient) => {
-                  console.log(ingredient.type);
-                  return ingredient.type === "Fruits";
+                  //   console.log(ingredient.type);
+                  return ingredient.type === "Dairy";
                 })
                 .map((ingredient1) => (
-                  <Dropdown.Item
-                    key={ingredient1._id}
-                    eventKey={ingredient1.name}
-                  >
-                    {ingredient1}
-                  </Dropdown.Item>
+                  <option key={ingredient1._id} value={ingredient1.name}>
+                    {ingredient1.name}
+                  </option>
                 ))}
-            </DropdownButton>
+            </select>
           </>
 
           <>
-            <DropdownButton
+            <select
               as={ButtonGroup}
-              key="Fruits"
+              key="Vegetables"
               id="dropdown-variants-Warning"
               variant="warning"
-              title={ingredient === "" ? "Fruits" : `${ingredient}`}
-              name="type"
-              onSelect={handleIngredient}
+              title={
+                ingredient.type === "" ? "Vegetables" : `${ingredient.type}`
+              }
+              name="Vegetables"
+              onChange={handleIngredient}
             >
+              <option selected disabled hidden>
+                Vegetables
+              </option>
               {ingredients
                 .filter((ingredient) => {
-                  console.log(ingredient.type);
-                  return ingredient.type === "Fruits";
+                  //   console.log(ingredient.type);
+                  return ingredient.type === "Vegetables";
                 })
                 .map((ingredient1) => (
-                  <Dropdown.Item
-                    key={ingredient1._id}
-                    eventKey={ingredient1.name}
-                  >
-                    {ingredient1}
-                  </Dropdown.Item>
+                  <option key={ingredient1._id} value={ingredient1.name}>
+                    {ingredient1.name}
+                  </option>
                 ))}
-            </DropdownButton>
+            </select>
+          </>
+          <>
+            <select
+              as={ButtonGroup}
+              key="protien"
+              id="dropdown-variants-Warning"
+              variant="warning"
+              title={ingredient.type === "" ? "protien" : `${ingredient.type}`}
+              name="protien"
+              onChange={handleIngredient}
+            >
+              <option selected disabled hidden>
+                protien
+              </option>
+              {ingredients
+                .filter((ingredient) => {
+                  //   console.log(ingredient.type);
+                  return ingredient.type === "protien";
+                })
+                .map((ingredient1) => (
+                  <option key={ingredient1._id} value={ingredient1.name}>
+                    {ingredient1.name}
+                  </option>
+                ))}
+            </select>
           </>
 
           <>
-            <DropdownButton
+            <select
               as={ButtonGroup}
-              key="Fruits"
+              key="Grains"
               id="dropdown-variants-Warning"
               variant="warning"
-              title={ingredient === "" ? "Fruits" : `${ingredient}`}
-              name="type"
-              onSelect={handleIngredient}
+              title={ingredient.type === "" ? "Grains" : `${ingredient.type}`}
+              name="Grains"
+              onChange={handleIngredient}
             >
+              <option selected disabled hidden>
+                Grains
+              </option>
               {ingredients
                 .filter((ingredient) => {
-                  console.log(ingredient.type);
-                  return ingredient.type === "Fruits";
+                  //   console.log(ingredient.type);
+                  return ingredient.type === "Grains";
                 })
                 .map((ingredient1) => (
-                  <Dropdown.Item
-                    key={ingredient1._id}
-                    eventKey={ingredient1.name}
-                  >
-                    {ingredient1}
-                  </Dropdown.Item>
+                  <option key={ingredient1._id} value={ingredient1.name}>
+                    {ingredient1.name}
+                  </option>
                 ))}
-            </DropdownButton>
-          </>
-          <>
-            <DropdownButton
-              as={ButtonGroup}
-              key="Fruits"
-              id="dropdown-variants-Warning"
-              variant="warning"
-              title={ingredient === "" ? "Fruits" : `${ingredient}`}
-              name="type"
-              onSelect={handleIngredient}
-            >
-              {ingredients
-                .filter((ingredient) => {
-                  console.log(ingredient.type);
-                  return ingredient.type === "Fruits";
-                })
-                .map((ingredient1) => (
-                  <Dropdown.Item
-                    key={ingredient1._id}
-                    eventKey={ingredient1.name}
-                  >
-                    {ingredient1}
-                  </Dropdown.Item>
-                ))}
-            </DropdownButton>
+            </select>
           </>
         </div>
 
