@@ -41,7 +41,7 @@ const RecipeList = () => {
       <section className="page-section bg-light" id="portfolio">
         <div className="container">
           <div className="text-center">
-            <h2 className="section-heading text-uppercase"> recipies</h2>
+            <h2 className="section-heading text-uppercase"> recipes</h2>
             <h3 className="section-subheading text-muted">finest food </h3>
           </div>
           <div className="row">{recipeList}</div>

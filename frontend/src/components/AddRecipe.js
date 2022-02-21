@@ -287,20 +287,20 @@ const AddRecipe = () => {
             <select
               className="ing"
               as={ButtonGroup}
-              key="protien"
+              key="Protein"
               id="dropdown-variants-Warning"
               variant="warning"
-              title={ingredient.type === "" ? "protien" : `${ingredient.type}`}
-              name="protien"
+              title={ingredient.type === "" ? "Protein" : `${ingredient.type}`}
+              name="Protein"
               onChange={handleIngredient}
             >
               <option selected disabled hidden>
-                protien
+                Protein
               </option>
               {ingredients
                 .filter((ingredient) => {
                   //   console.log(ingredient.type);
-                  return ingredient.type === "protien";
+                  return ingredient.type === "Protein";
                 })
                 .map((ingredient1) => (
                   <option key={ingredient1._id} value={ingredient1.name}>
@@ -346,7 +346,7 @@ const AddRecipe = () => {
           />
         </div>
 
-        <Button variant="outline-dark" type="submit">
+        <Button variant="outline-dark" type="submit" className="btn1">
           Submit
         </Button>
       </form>
