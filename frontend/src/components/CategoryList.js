@@ -5,7 +5,11 @@ import categoryStore from "../stores/categoryStore";
 import { observer } from "mobx-react";
 import CategoryCard from "./CategoryCard";
 import CategoryModal from "./CategoryModal";
+
+//import { collectStoredAnnotations } from "mobx/dist/internal";
+=======
 import { Link } from "react-router-dom";
+
 
 const CategoryList = () => {
   const [show, setShow] = useState(false);
@@ -22,7 +26,7 @@ const CategoryList = () => {
   return (
     <>
       <h1>categories</h1>
-      <Button variant="outline-dark" onClick={handleShow}>
+      <Button className="bk-color" variant="outline-dark" onClick={handleShow}>
         Add Category
       </Button>
       <div className="categories">{categoryList}</div>

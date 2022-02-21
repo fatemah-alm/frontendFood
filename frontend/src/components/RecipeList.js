@@ -22,6 +22,14 @@ const RecipeList = () => {
         return name ? recipe.category.name === name : true;
       }
     })
+
+
+    // .filter((recipe) => {
+    //   return recipe.category.name === name;
+    // })
+
+=======
+
     .map((recipe) => {
       console.log(recipe);
       return <Recipes recipe={recipe} key={recipe.id} />;
