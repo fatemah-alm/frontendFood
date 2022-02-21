@@ -7,9 +7,8 @@ import CategoryCard from "./CategoryCard";
 import CategoryModal from "./CategoryModal";
 
 //import { collectStoredAnnotations } from "mobx/dist/internal";
-=======
-import { Link } from "react-router-dom";
 
+import { Link } from "react-router-dom";
 
 const CategoryList = () => {
   const [show, setShow] = useState(false);
@@ -30,9 +29,7 @@ const CategoryList = () => {
         Add Category
       </Button>
       <div className="categories">{categoryList}</div>
-      <div>
-        <Link to="/all-categories">... show all</Link>
-      </div>
+
       <CategoryModal handleClose={handleClose} setShow={setShow} show={show} />
     </>
   );
