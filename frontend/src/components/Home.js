@@ -1,10 +1,8 @@
 import React from "react";
 import CategoryList from "./CategoryList";
-import Navbar from "./Navbar";
 const Home = () => {
   return (
     <>
-      <Navbar />
       <header className="masthead">
         <div className="container">
           <div className="masthead-subheading">Welcome To Our Kitchen!</div>
@@ -19,6 +17,7 @@ const Home = () => {
           </a>
         </div>
       </header>
+
       <CategoryList />
     </>
   );

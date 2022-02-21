@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { observer } from "mobx-react";
 import { useParams } from "react-router-dom";
 import ingredientStore from "../stores/ingredientStore";
-// import Ingredients from "./Ingredients";
-// import IngredientModal from "./IngredientModal";
+import Ingredients from "./Ingredients";
+import IngredientModal from "./IngredientModal";
 import { Button } from "react-bootstrap";
 
 const IngredientList = () => {
@@ -11,20 +11,10 @@ const IngredientList = () => {
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
-  const name = useParams().name;
-  console.log(name);
-
-  const ingredientList = ingredientStore.ingredients
-    // .filter((ingredient) => {
-    // //   console.log(ingredient.category);
-    //  {
-    //     return name ? ingredient.category.name === name : true;
-    //   }
-    // })
-    .map((ingredient) => {
-      console.log(ingredient);
-      //   return <ingredients ingredient={ingredient} key={ingredient.id} />;
-    });
+  const ingredientList = ingredientStore.ingredients.map((ingredient) => {
+    // console.log(ingredient);
+    return <Ingredients ingredient={ingredient} key={ingredient._id} />;
+  });
 
   console.log(IngredientList);
   //   useEffect(() => {
@@ -32,20 +22,26 @@ const IngredientList = () => {
   //   }, []);
   return (
     <>
-      <section class="page-section bg-light" id="portfolio">
-        <div class="container">
-          <div class="text-center">
-            <h2 class="section-heading text-uppercase">{name} recipies</h2>
-            <h3 class="section-subheading text-muted">finest {name} food </h3>
+      <section className="page-section bg-light" id="portfolio">
+        <div className="container">
+          <div className="text-center">
+            <h2 className="section-heading text-uppercase"> ingredients</h2>
+            <h3 className="section-subheading text-muted">
+              best picks for you{" "}
+            </h3>
           </div>
-          <div class="row">{ingredientList}</div>
+          <div className="row">{ingredientList}</div>
           <Button variant="outline-dark" onClick={handleShow}>
             Add Ingredient
           </Button>
         </div>
       </section>
 
-      {/* <IngredientModal handleClose={handleClose} setShow={setShow} show={show} /> */}
+      <IngredientModal
+        handleClose={handleClose}
+        setShow={setShow}
+        show={show}
+      />
     </>
   );
 };
