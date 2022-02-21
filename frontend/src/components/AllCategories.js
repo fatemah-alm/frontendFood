@@ -5,16 +5,15 @@ import categoryStore from "../stores/categoryStore";
 import { observer } from "mobx-react";
 import CategoryCard from "./CategoryCard";
 import CategoryModal from "./CategoryModal";
-import { Link } from "react-router-dom";
 
 const CategoryList = () => {
   const [show, setShow] = useState(false);
   const handleShow = () => setShow(true);
   const handleClose = () => setShow(false);
 
-  const categoryList = categoryStore.categories
-    .slice(0, 2)
-    .map((category) => <CategoryCard key={category._id} category={category} />);
+  const categoryList = categoryStore.categories.map((category) => (
+    <CategoryCard key={category._id} category={category} />
+  ));
   // .filter((category) =>
   //   category.name.toLowerCase().includes(query.toLowerCase())
   // )
@@ -25,10 +24,8 @@ const CategoryList = () => {
       <Button variant="outline-dark" onClick={handleShow}>
         Add Category
       </Button>
-      <div className="categories">{categoryList}</div>
-      <div>
-        <Link to="/all-categories">... show all</Link>
-      </div>
+      <div className="categories1">{categoryList}</div>
+
       <CategoryModal handleClose={handleClose} setShow={setShow} show={show} />
     </>
   );

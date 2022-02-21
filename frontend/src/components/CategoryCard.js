@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 function CategoryCard({ category }) {
   return (
     <>
-      <Col className="col-lg-4 mx-auto">
-        <Card>
+      <Col className="col-lg-4 mx-auto card1">
+        <Card className="card ">
           <Card.Img
             className="image2"
             variant="top"

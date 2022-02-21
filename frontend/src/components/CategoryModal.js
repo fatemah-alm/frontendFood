@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import categorytStore from "../stores/categoryStore";
+import categoryStore from "../stores/categoryStore";
 import {
   Button,
   InputGroup,
@@ -29,7 +29,7 @@ const CategoryModal = ({ setShow, handleClose, show }) => {
     event.preventDefault();
 
     // if (oldProduct) productStore.updateProduct(product, oldProduct._id);
-    categorytStore.createCategory(category);
+    categoryStore.createCategory(category);
     handleClose();
   };
 
