@@ -56,7 +56,7 @@ const IngredientModal = ({ setShow, handleClose, show }) => {
                 <option value="Fruits">Fruits</option>
                 <option value="Vegetables">Vegetables</option>
                 <option value="Dairy">Dairy</option>
-                <option value="Protien">Protien</option>
+                <option value="Protein">Protein</option>
                 <option value="Grains">Grains</option>
               </Form.Select>
             </Form.Group>

@@ -17,7 +17,7 @@ const RecipeItem = ({ recipe }) => {
               <i className="fas fa-plus fa-3x"></i>
             </div>
           </div>
-          <img className="image1 image2" src={recipe.image} alt="#" /> =======
+          <img className="image1 image2" src={recipe.image} alt="#" />
         </a>
         <div className="portfolio-caption">
           <div className="portfolio-caption-heading">

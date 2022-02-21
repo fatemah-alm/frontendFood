@@ -151,9 +151,15 @@
 .add-recipe {
   margin-top: 50px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: 450px;
   -ms-flex-align: center;
   width: 500px;
+}
+
+.btn1 {
+  margin-bottom: 12px;
 }
 
 /* .recipe {

@@ -12,7 +12,7 @@ const Navbar = () => {
           Categories
         </a>
         <a className="navbar-brand ps-3" href="/recipe-list">
-          Recipies
+          Recipes
         </a>
         <a className="navbar-brand ps-3" href="/ingredient-list">
           ingredients
