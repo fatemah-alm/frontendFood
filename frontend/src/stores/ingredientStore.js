@@ -2,10 +2,11 @@ import { makeAutoObservable } from "mobx";
 import instance from "./instance";
 
 class IngredientStore {
-  Ingredients = [];
+  ingredients = [];
 
   constructor() {
     makeAutoObservable(this);
+    console.log("heyyy");
   }
 
   fetchIngredients = async () => {
@@ -19,10 +20,12 @@ class IngredientStore {
 
   createIngredient = async (newIngredient) => {
     try {
-      const formData = new FormData();
-      for (const key in newIngredient) formData.append(key, newIngredient[key]);
-      const response = await instance.post("/ingredients", formData);
+      // console.log(newIngredient);
+      // const formData = new FormData();
+      // for (const key in newIngredient) formData.append(key, newIngredient[key]);
+      const response = await instance.post("/ingredients", newIngredient);
       this.ingredients.push(response.data);
+      this.fetchIngredients();
     } catch (error) {
       console.log(
         "🚀 ~ file: ingredientStore.js ~ line 16 ~ IngredientStore ~ createIngredient= ~ error",
@@ -33,6 +36,6 @@ class IngredientStore {
 }
 
 const ingredientStore = new IngredientStore();
-IngredientStore.fetchIngredients();
+ingredientStore.fetchIngredients();
 
 export default ingredientStore;
