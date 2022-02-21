@@ -43,6 +43,21 @@
   object-fit: cover;
 }
 
+.mod-wid {
+  width: 250px;
+}
+
+.bk-color {
+  background-color: rgb(255, 200, 0);
+  color: rgb(255, 255, 255);
+  border-color: aliceblue;
+  font-size: large;
+  font-weight: bold;
+  font-family: Montserrat, -apple-system, "system-ui", "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 .round {
   border-radius: 12px;
 }

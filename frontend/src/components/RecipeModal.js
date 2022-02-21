@@ -78,7 +78,7 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
             <InputGroup className="mb-3">
               <InputGroup.Text>Name</InputGroup.Text>
               <FormControl
-                placeholder="Your recipe's name"
+                placeholder="Recipe's name"
                 name="name"
                 value={recipe.name}
                 type="text"
@@ -97,7 +97,7 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
             <InputGroup className="mb-3">
               <InputGroup.Text>Description</InputGroup.Text>
               <FormControl
-                placeholder="Your recipe description"
+                placeholder="Recipe's description"
                 name="description"
                 value={recipe.description}
                 type="text"
@@ -169,7 +169,11 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
               </>
             </div>
 
-            <InputGroup className="mb-3">
+            <InputGroup
+              className="mb-3"
+              className="mod-wid"
+              style={{ padding: "5px" }}
+            >
               <InputGroup.Text>Calories</InputGroup.Text>
               <FormControl
                 placeholder="Calories Count"
@@ -179,9 +183,13 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
                 onChange={handleChange}
               />
             </InputGroup>
-            <br />
-            <InputGroup className="mb-3">
-              <InputGroup.Text>Recipe Creator</InputGroup.Text>
+
+            <InputGroup
+              className="mb-3"
+              className="mod-wid"
+              style={{ padding: "5px" }}
+            >
+              <InputGroup.Text>Creator</InputGroup.Text>
               <FormControl
                 placeholder="Created by"
                 name="createdBy"
@@ -190,12 +198,13 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
                 onChange={handleChange}
               />
             </InputGroup>
-
-            <ProgressBar
-              animated
-              now={progressBar}
-              label={progressBar >= 100 ? "Yumm!" : `${progressBar}%`}
-            />
+            <div style={{ padding: "5px" }}>
+              <ProgressBar
+                animated
+                now={progressBar}
+                label={progressBar >= 100 ? "Yumm!" : `${progressBar}%`}
+              />
+            </div>
 
             <Button variant="outline-dark" type="submit">
               Submit

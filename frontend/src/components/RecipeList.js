@@ -21,7 +21,7 @@ const RecipeList = () => {
         return name ? recipe.category.name === name : true;
       }
     })
-=======
+
     // .filter((recipe) => {
     //   return recipe.category.name === name;
     // })
