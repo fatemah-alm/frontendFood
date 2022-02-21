@@ -24,8 +24,8 @@ const Home = () => {
         <CategoryList />
       </div>
       <br />
-      <div className="button">
-        <Link to="/all-categories">
+      <div>
+        <Link to="/all-categories" className="button">
           <Button>Show more</Button>
         </Link>
       </div>
