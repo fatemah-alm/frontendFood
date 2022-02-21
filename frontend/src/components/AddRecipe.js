@@ -21,6 +21,7 @@ const AddRecipe = () => {
   const navigate = useNavigate();
   const categories = categoryStore.categories;
   const [category, setCategory] = useState("");
+  const [progressBar, setProgressBar] = useState(0);
 
   const ingredients = ingredientStore.ingredients;
   console.log(ingredients);
@@ -38,19 +39,31 @@ const AddRecipe = () => {
     ingredient: "",
   });
   console.log(ingredients);
-  const handleChange = (event) =>
+  const handleChange = (event) => {
     setRecipe({ ...recipe, [event.target.name]: event.target.value });
+    setProgressBar(progressBar + 12.5);
+  };
 
   const handleSelect = (key, event) => {
+    if (recipe[key] === "" && event) {
+      setProgressBar(progressBar + 12.5);
+    }
     setRecipe({ ...recipe, [key]: event });
     console.log(recipe, "Hellooooo");
   };
-  const handleCategory = (event) => setCategory(event);
-  const handleIngredient = (event) =>
+  const handleCategory = (event) => {
+    setCategory(event);
+    setProgressBar(progressBar + 12.5);
+  };
+  const handleIngredient = (event) => {
     setIngredient({ ...ingredient, [event.target.name]: event.target.value });
+    setProgressBar(progressBar + 12.5);
+  };
 
-  const handleImage = (event) =>
+  const handleImage = (event) => {
     setRecipe({ ...recipe, [event.target.name]: event.target.files[0] });
+    setProgressBar(progressBar + 12.5);
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -308,8 +321,11 @@ const AddRecipe = () => {
           </>
         </div>
 
-        <ProgressBar animated now={45} />
-
+        <ProgressBar
+          animated
+          now={progressBar}
+          label={progressBar >= 100 ? "Yumm!" : `${progressBar}%`}
+        />
         <Button variant="outline-dark" type="submit">
           Submit
         </Button>
