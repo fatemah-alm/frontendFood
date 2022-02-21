@@ -1,5 +1,7 @@
 import React from "react";
 import CategoryList from "./CategoryList";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 const Home = () => {
   return (
     <>
@@ -18,7 +20,15 @@ const Home = () => {
         </div>
       </header>
 
-      <CategoryList />
+      <div>
+        <CategoryList />
+      </div>
+      <br />
+      <div className="button">
+        <Link to="/all-categories">
+          <Button>Show more</Button>
+        </Link>
+      </div>
     </>
   );
 };

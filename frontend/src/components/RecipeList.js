@@ -23,12 +23,9 @@ const RecipeList = () => {
       }
     })
 
-
     // .filter((recipe) => {
     //   return recipe.category.name === name;
     // })
-
-=======
 
     .map((recipe) => {
       console.log(recipe);

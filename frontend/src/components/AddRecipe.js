@@ -83,7 +83,7 @@ const AddRecipe = () => {
 
   //   console.log(categories);
   return (
-    <div>
+    <div className="add-recipe">
       <form onSubmit={handleSubmit}>
         <InputGroup className="mb-3">
           <InputGroup.Text>Name</InputGroup.Text>
@@ -333,11 +333,14 @@ const AddRecipe = () => {
           </>
         </div>
 
-        <ProgressBar
-          animated
-          now={progressBar}
-          label={progressBar >= 100 ? "Yumm!" : `${progressBar}%`}
-        />
+        <div style={{ padding: "5px" }}>
+          <ProgressBar
+            animated
+            now={progressBar}
+            label={progressBar >= 100 ? "Yumm!" : `${progressBar}%`}
+          />
+        </div>
+
         <Button variant="outline-dark" type="submit">
           Submit
         </Button>

@@ -104,6 +104,21 @@
   width: 350px;
   margin: 15px;
 }
+.button {
+  display: flex;
+  margin-top: 300px;
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.add-recipe {
+  margin-top: 50px;
+  display: flex;
+  margin-left: 450px;
+  -ms-flex-align: center;
+  width: 500px;
+}
 
 /* .recipe {
    background-image: url("/Users/apple/Desktop/Development/frontendFood/frontend/public/assets/img/sackpy-3.jpeg"); 
