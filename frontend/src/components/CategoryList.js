@@ -24,8 +24,8 @@ const CategoryList = () => {
 
   return (
     <>
-      <h1>categories</h1>
-      <Button className="bk-color" variant="outline-dark" onClick={handleShow}>
+      <h1 className="category">categories</h1>
+      <Button variant="outline-dark" onClick={handleShow}>
         Add Category
       </Button>
       <div className="categories">{categoryList}</div>

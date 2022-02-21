@@ -203,6 +203,7 @@ const AddRecipe = () => {
         >
           <>
             <select
+              className="ing"
               as={ButtonGroup}
               key="Fruits"
               id="dropdown-variants-Warning"
@@ -229,6 +230,7 @@ const AddRecipe = () => {
 
           <>
             <select
+              className="ing"
               as={ButtonGroup}
               key="Dairy"
               id="dropdown-variants-Warning"
@@ -255,6 +257,7 @@ const AddRecipe = () => {
 
           <>
             <select
+              className="ing"
               as={ButtonGroup}
               key="Vegetables"
               id="dropdown-variants-Warning"
@@ -282,6 +285,7 @@ const AddRecipe = () => {
           </>
           <>
             <select
+              className="ing"
               as={ButtonGroup}
               key="protien"
               id="dropdown-variants-Warning"
@@ -308,6 +312,7 @@ const AddRecipe = () => {
 
           <>
             <select
+              className="ing"
               as={ButtonGroup}
               key="Grains"
               id="dropdown-variants-Warning"
