@@ -12,14 +12,12 @@ import {
   Dropdown,
   ProgressBar,
 } from "react-bootstrap";
-import ingredientStore from "../stores/ingredientStore";
 
 const RecipeModal = ({ setShow, handleClose, show }) => {
   const categories = categoryStore.categories;
   const [category, setCategory] = useState("");
 
-  const ingredients = ingredientStore.ingredients;
-  const [ingredient, setingredient] = useState("");
+  const [progressBar, setProgressBar] = useState(0);
 
   const [recipe, setRecipe] = useState({
     name: "",
@@ -30,20 +28,35 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
     prepTime: "",
     createdBy: "",
     category: "",
-    ingredient: "",
   });
 
-  const handleChange = (event) =>
+  const handleChange = (event) => {
+    if (recipe[event.target.name] === "" && event.target.value !== "") {
+      setProgressBar(progressBar + 12.5);
+    }
     setRecipe({ ...recipe, [event.target.name]: event.target.value });
+  };
 
   const handleSelect = (key, event) => {
+    if (recipe[key] === "" && event) {
+      setProgressBar(progressBar + 12.5);
+    }
     setRecipe({ ...recipe, [key]: event });
     console.log(recipe, "Hellooooo");
   };
-  const handleCategory = (event) => setCategory(event);
+  const handleCategory = (event) => {
+    if (recipe["category"] === "" && event) {
+      setProgressBar(progressBar + 12.5);
+    }
+    setCategory(event);
+  };
 
-  const handleImage = (event) =>
+  const handleImage = (event) => {
+    if (recipe[event.target.name] === "" && event.target.files[0]) {
+      setProgressBar(progressBar + 12.5);
+    }
     setRecipe({ ...recipe, [event.target.name]: event.target.files[0] });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -178,18 +191,11 @@ const RecipeModal = ({ setShow, handleClose, show }) => {
               />
             </InputGroup>
 
-            <InputGroup className="mb-3">
-              <InputGroup.Text>Ingredients</InputGroup.Text>
-              <FormControl
-                placeholder="Add Ingredients"
-                name="ingredients"
-                value={recipe.ingredient}
-                type="text"
-                onChange={handleChange}
-              />
-            </InputGroup>
-
-            <ProgressBar animated now={45} />
+            <ProgressBar
+              animated
+              now={progressBar}
+              label={progressBar >= 100 ? "Yumm!" : `${progressBar}%`}
+            />
 
             <Button variant="outline-dark" type="submit">
               Submit
